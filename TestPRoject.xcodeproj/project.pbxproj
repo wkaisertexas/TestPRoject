@@ -11,6 +11,7 @@
 		3E80C8242AE98BCD00A91040 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E80C8232AE98BCD00A91040 /* ContentView.swift */; };
 		3E80C8262AE98BCF00A91040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E80C8252AE98BCF00A91040 /* Assets.xcassets */; };
 		3E80C8292AE98BCF00A91040 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E80C8282AE98BCF00A91040 /* Preview Assets.xcassets */; };
+		3E80C8312AE98BE300A91040 /* CameraRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E80C8302AE98BE300A91040 /* CameraRecorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,8 @@
 		3E80C8252AE98BCF00A91040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E80C8282AE98BCF00A91040 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3E80C82A2AE98BCF00A91040 /* TestPRoject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestPRoject.entitlements; sourceTree = "<group>"; };
+		3E80C8302AE98BE300A91040 /* CameraRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRecorder.swift; sourceTree = "<group>"; };
+		3E80C8322AE994F300A91040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +55,13 @@
 		3E80C8202AE98BCD00A91040 /* TestPRoject */ = {
 			isa = PBXGroup;
 			children = (
+				3E80C8322AE994F300A91040 /* Info.plist */,
 				3E80C8212AE98BCD00A91040 /* TestPRojectApp.swift */,
 				3E80C8232AE98BCD00A91040 /* ContentView.swift */,
 				3E80C8252AE98BCF00A91040 /* Assets.xcassets */,
 				3E80C82A2AE98BCF00A91040 /* TestPRoject.entitlements */,
 				3E80C8272AE98BCF00A91040 /* Preview Content */,
+				3E80C8302AE98BE300A91040 /* CameraRecorder.swift */,
 			);
 			path = TestPRoject;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E80C8242AE98BCD00A91040 /* ContentView.swift in Sources */,
+				3E80C8312AE98BE300A91040 /* CameraRecorder.swift in Sources */,
 				3E80C8222AE98BCD00A91040 /* TestPRojectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +280,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestPRoject/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Shit shiot shit";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,6 +309,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestPRoject/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Shit shiot shit";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
