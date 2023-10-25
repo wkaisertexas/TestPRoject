@@ -20,7 +20,7 @@ struct ContentView: View {
         }
         .padding()
         
-        Button("Shitty Shity"){
+        Button("Start recording video"){
             recordVideo = RecordVideo()
         }
     }
