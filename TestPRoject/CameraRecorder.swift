@@ -10,6 +10,11 @@ import AVFoundation
 import CoreMedia
 
 class RecordVideo: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+    var captureSession: AVCaptureSession?
+    var videoDataOutput: AVCaptureVideoDataOutput?
+    var camera: AVCaptureDevice?
+    var camptureSessionInput: AVCaptureDeviceInput?
+    
     override init(){
         super.init()
         // finds the front camera
@@ -30,12 +35,17 @@ class RecordVideo: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         let videoDataOutput = AVCaptureVideoDataOutput()
         captureSession.addOutput(videoDataOutput)
         videoDataOutput.videoSettings = [
-            kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange
+            kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)
         ]
         videoDataOutput.setSampleBufferDelegate(self, queue: .global(qos: .userInitiated))
         videoDataOutput.alwaysDiscardsLateVideoFrames = true
         
         captureSession.startRunning()
+        
+        self.videoDataOutput = videoDataOutput
+        self.captureSession = captureSession
+        self.camera = camera
+        self.camptureSessionInput = captureSessionInput
     }
     
     func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
