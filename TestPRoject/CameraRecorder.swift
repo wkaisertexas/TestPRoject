@@ -33,19 +33,29 @@ class RecordVideo: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         captureSession.addInput(captureSessionInput)
         
         let videoDataOutput = AVCaptureVideoDataOutput()
-        captureSession.addOutput(videoDataOutput)
+        let availablePixelFormatTypes = videoDataOutput.availableVideoPixelFormatTypes
+        print("Available Pixel Format Types", availablePixelFormatTypes)
+        
         videoDataOutput.videoSettings = [
-            kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)
+            kCVPixelBufferPixelFormatTypeKey as String: Int(availablePixelFormatTypes.first!),
+            kCVPixelBufferIOSurfacePropertiesKey as String : [:]
         ]
         videoDataOutput.setSampleBufferDelegate(self, queue: .global(qos: .userInitiated))
         videoDataOutput.alwaysDiscardsLateVideoFrames = true
-        
+
+        captureSession.addOutput(videoDataOutput)
+
         captureSession.startRunning()
         
         self.videoDataOutput = videoDataOutput
         self.captureSession = captureSession
         self.camera = camera
         self.camptureSessionInput = captureSessionInput
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        print("Captured output\(sampleBuffer)")
+
     }
     
     func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
